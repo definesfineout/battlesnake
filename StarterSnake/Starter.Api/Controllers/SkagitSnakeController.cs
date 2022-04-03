@@ -54,7 +54,8 @@ namespace Starter.Api.Controllers
         [HttpPost("move")]
         public IActionResult Move(GameStatusRequest gameStatusRequest)
         {
-            var solver = new PathSolver(gameStatusRequest.Board, gameStatusRequest.You);
+            //var solver = new PathSolver(gameStatusRequest.Board, gameStatusRequest.You);
+            var solver = new HamiltonSolver(gameStatusRequest.Board, gameStatusRequest.You);
 
             var direction = solver.GetNextDirection();
             var response = new MoveResponse
