@@ -2,6 +2,10 @@
 
 Developed live on stream at [twitch.tv/defiines](https://twitch.tv/defiines)
 
+- **SillyBoi** implements naiive approaches to survival and finding food
+- **Skagit** plans to implement some sort of hamiltonian cycle algorithm before augmenting with flood-fill
+- **Sifl** will be controlled by an NES controller, more sock puppet than snake
+
 # Acknowledgments
 
 - I started with the [Battlesnake C# Starter](https://github.com/neistow/battlesnake-starter-csharp) by [neistow](https://github.com/neistow)
@@ -25,3 +29,11 @@ Developed live on stream at [twitch.tv/defiines](https://twitch.tv/defiines)
 - [Deep learning vs. machine learning in Azure Machine Learning](https://docs.microsoft.com/en-us/azure/machine-learning/concept-deep-learning-vs-machine-learning) - discussions on types of neural networks
 - [Reinforcement learning (preview) with Azure Machine Learning](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-use-reinforcement-learning)
     - [How to use Azure ML Reinforcement Learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/reinforcement-learning/README.md)
+
+
+## Human Input
+
+- https://stackoverflow.com/q/3929764/120990
+- https://stackoverflow.com/a/12988935/120990
+  - [C++ Adapter](https://pastebin.com/AiecKJjZ)
+- Alternative https://opentk.net/
