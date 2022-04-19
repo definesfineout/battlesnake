@@ -73,7 +73,7 @@ namespace Starter.Core
         /// </summary>
         public string Squad { get; set; }
 
-        public eDirection Direction
+        public Direction Direction
         {
             get
             {

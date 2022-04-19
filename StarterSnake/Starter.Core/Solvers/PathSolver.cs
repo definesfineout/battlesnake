@@ -22,17 +22,17 @@ namespace Starter.Core.Solvers
             }
         }
 
-        public List<eDirection> ShortestPathToFood()
+        public List<Direction> ShortestPathToFood()
         {
             return PathTo(FindClosestFood(), ePathType.Shortest);
         }
 
-        public List<eDirection> LongestPathToTail()
+        public List<Direction> LongestPathToTail()
         {
             return PathTo(Me.Tail, ePathType.Longest);
         }
 
-        public List<eDirection> PathTo(Point destination, ePathType pathType)
+        public List<Direction> PathTo(Point destination, ePathType pathType)
         {
             if (pathType == ePathType.Shortest)
             {
@@ -42,7 +42,7 @@ namespace Starter.Core.Solvers
             return LongestPathTo(destination);
         }
 
-        public List<eDirection> ShortestPathTo(Point destination)
+        public List<Direction> ShortestPathTo(Point destination)
         {
             ResetTable();
 
@@ -61,7 +61,7 @@ namespace Starter.Core.Solvers
                     return BuildPath(head, destination);
                 }
 
-                var firstDirection = eDirection.None;
+                var firstDirection = Direction.None;
                 if (cur == head)
                 {
                     firstDirection = Me.Direction;
@@ -108,7 +108,7 @@ namespace Starter.Core.Solvers
             return null;
         }
 
-        public List<eDirection> LongestPathTo(Point destination)
+        public List<Direction> LongestPathTo(Point destination)
         {
             var path = ShortestPathTo(destination);
             if (path == null)
@@ -134,15 +134,15 @@ namespace Starter.Core.Solvers
             {
                 var curDirection = path[idx];
                 var next = cur.GetAdjacent(curDirection);
-                eDirection[] tests;
-                if (curDirection == eDirection.Left
-                    || curDirection == eDirection.Right)
+                Direction[] tests;
+                if (curDirection == Direction.Left
+                    || curDirection == Direction.Right)
                 {
-                    tests = new [] { eDirection.Up, eDirection.Down};
+                    tests = new [] { Direction.Up, Direction.Down};
                 }
                 else
                 {
-                    tests = new[] { eDirection.Left, eDirection.Right };
+                    tests = new[] { Direction.Left, Direction.Right };
                 }
 
                 var extended = false;
@@ -188,9 +188,9 @@ namespace Starter.Core.Solvers
             }
         }
 
-        private List<eDirection> BuildPath(Point source, Point destination)
+        private List<Direction> BuildPath(Point source, Point destination)
         {
-            var path = new List<eDirection>();
+            var path = new List<Direction>();
             var position = destination;
             while (position != source)
             {
@@ -208,7 +208,7 @@ namespace Starter.Core.Solvers
                 && !Table[position.X][position.Y].Visited;
         }
 
-        public override eDirection GetNextDirection()
+        public override Direction GetNextDirection()
         {
             return LongestPathToTail().FirstOrDefault();
         }

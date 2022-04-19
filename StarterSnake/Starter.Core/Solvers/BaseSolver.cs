@@ -16,7 +16,7 @@ namespace Starter.Core.Solvers
             Me = me;
         }
 
-        protected IEnumerable<eDirection> GetValidDirections()
+        protected IEnumerable<Direction> GetValidDirections()
         {
             if (Board == null || Me == null)
             {
@@ -30,22 +30,22 @@ namespace Starter.Core.Solvers
                                 p.X == Me.Head.X + 1
                                 && p.Y == Me.Head.Y)))
             {
-                yield return eDirection.Right;
+                yield return Direction.Right;
             }
             if (Me.Head.X > 0
                 && !Board.Snakes.Any(s => s.Body.Any(p => p.X == Me.Head.X - 1 && p.Y == Me.Head.Y)))
             {
-                yield return eDirection.Left;
+                yield return Direction.Left;
             }
             if (Me.Head.Y < (Board.Height - 1)
                 && !Board.Snakes.Any(s => s.Body.Any(p => p.X == Me.Head.X && p.Y == Me.Head.Y + 1)))
             {
-                yield return eDirection.Up;
+                yield return Direction.Up;
             }
             if (Me.Head.Y > 0
                 && !Board.Snakes.Any(s => s.Body.Any(p => p.X == Me.Head.X && p.Y == Me.Head.Y - 1)))
             {
-                yield return eDirection.Down;
+                yield return Direction.Down;
             }
         }
 
@@ -66,6 +66,6 @@ namespace Starter.Core.Solvers
             return distances.Aggregate((l, r) => l.Value < r.Value ? l : r).Key;
         }
 
-        public abstract eDirection GetNextDirection();
+        public abstract Direction GetNextDirection();
     }
 }

@@ -17,7 +17,7 @@ namespace Starter.Core.Solvers
             naiveSolver = new NaiveSolver(board, me);
         }
 
-        public override eDirection GetNextDirection()
+        public override Direction GetNextDirection()
         {
             if (HasHamiltonianCycle())
             {

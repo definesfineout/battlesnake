@@ -10,14 +10,14 @@ namespace Starter.Core.Solvers
             : base(board, me)
         { }
 
-        public override eDirection GetNextDirection()
+        public override Direction GetNextDirection()
         {
             var direction = GetValidDirections().ToList();
 
             // If we have no directions, ditch right
             if (direction.Count == 0)
             {
-                return eDirection.Right;
+                return Direction.Right;
             }
             
             // Otherwise, pick a random valid direction
@@ -37,7 +37,7 @@ namespace Starter.Core.Solvers
             return direction[rng.Next(direction.Count)];
         }
 
-        public bool IsDirectionCloserToFood(eDirection direction)
+        public bool IsDirectionCloserToFood(Direction direction)
         {
             var target = FindClosestFood();
             if (target == null)
@@ -49,16 +49,16 @@ namespace Starter.Core.Solvers
 
             switch(direction)
             {
-                case eDirection.Up:
+                case Direction.Up:
                     if (Me.Head.Y < target.Y) return true;
                     break;
-                case eDirection.Down:
+                case Direction.Down:
                     if (Me.Head.Y > target.Y) return true;
                     break;
-                case eDirection.Left:
+                case Direction.Left:
                     if (Me.Head.X > target.X) return true;
                     break;
-                case eDirection.Right:
+                case Direction.Right:
                     if (Me.Head.X < target.X) return true;
                     break;
             }
@@ -66,7 +66,7 @@ namespace Starter.Core.Solvers
             return false;
         }
 
-        public bool IsDirectionFartherFromFood(eDirection direction)
+        public bool IsDirectionFartherFromFood(Direction direction)
         {
             var target = FindClosestFood();
             if (target == null)
@@ -76,16 +76,16 @@ namespace Starter.Core.Solvers
 
             switch (direction)
             {
-                case eDirection.Up:
+                case Direction.Up:
                     if (Me.Head.Y > target.Y) return true;
                     break;
-                case eDirection.Down:
+                case Direction.Down:
                     if (Me.Head.Y < target.Y) return true;
                     break;
-                case eDirection.Left:
+                case Direction.Left:
                     if (Me.Head.X < target.X) return true;
                     break;
-                case eDirection.Right:
+                case Direction.Right:
                     if (Me.Head.X > target.X) return true;
                     break;
             }

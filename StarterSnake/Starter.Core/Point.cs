@@ -64,18 +64,18 @@ namespace Starter.Core
         public static bool operator !=(Point left, Point right)
             => !(left == right);
 
-        public eDirection GetDirectionTo(Point adjacentPosition)
+        public Direction GetDirectionTo(Point adjacentPosition)
         {
             if (X == adjacentPosition.X)
             {
                 var diff = Y - adjacentPosition.Y;
                 if (diff == 1)
                 {
-                    return eDirection.Down;
+                    return Direction.Down;
                 }
                 else if (diff == -1)
                 {
-                    return eDirection.Up;
+                    return Direction.Up;
                 }
             }
             else if (Y == adjacentPosition.Y)
@@ -83,30 +83,30 @@ namespace Starter.Core
                 var diff = X - adjacentPosition.X;
                 if (diff == 1)
                 {
-                    return eDirection.Left;
+                    return Direction.Left;
                 }
                 else if (diff == -1)
                 {
-                    return eDirection.Right;
+                    return Direction.Right;
                 }
             }
 
-            return eDirection.None;
+            return Direction.None;
         }
 
-        public Point GetAdjacent(eDirection direction)
+        public Point GetAdjacent(Direction direction)
         {
             switch (direction)
             {
-                case eDirection.Up:
+                case Direction.Up:
                     return new Point(X, Y + 1);
-                case eDirection.Down:
+                case Direction.Down:
                     return new Point(X, Y - 1);
-                case eDirection.Right:
+                case Direction.Right:
                     return new Point(X + 1, Y);
-                case eDirection.Left:
+                case Direction.Left:
                     return new Point(X - 1, Y);
-                case eDirection.None:
+                case Direction.None:
                 default:
                     break;
             }
@@ -116,9 +116,9 @@ namespace Starter.Core
 
         public IEnumerable<Point> GetAllAdjacent()
         {
-            foreach (eDirection direction in (eDirection[]) Enum.GetValues(typeof(eDirection)))
+            foreach (Direction direction in (Direction[]) Enum.GetValues(typeof(Direction)))
             {
-                if (direction == eDirection.None)
+                if (direction == Direction.None)
                 { 
                     continue;
                 }
