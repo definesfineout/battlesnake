@@ -59,7 +59,7 @@ namespace Starter.Api.Controllers
             var direction = solver.GetNextDirection();
             var response = new MoveResponse
             {
-                Move = direction.ToString(),
+                Move = direction.ToString().ToLower(),
                 Shout = $"I am totally not moving {direction}!"
             };
 

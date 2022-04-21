@@ -10,6 +10,9 @@ namespace DirectInputTest
     {
         private static readonly HttpClient client = new();
 
+        private const string uri = "https://df-battlesnake-sillyboi20220319162850.azurewebsites.net/sifl/snake/input";
+        //private const string uri = "http://localhost:17832/sifl/snake/input";
+
         //// Y: up = 0; none = 32511; down = 65535
         //// X: left = 0; none = 32511; right = 65535
         const int AxisMin = 0;
@@ -89,9 +92,9 @@ namespace DirectInputTest
                     if (string.IsNullOrWhiteSpace(direction))
                         continue;
 
-                    var uri = "https://df-battlesnake-sillyboi20220319162850.azurewebsites.net/sifl/snake/input";
-                    var requestContent = new StringContent($"{{'direction': '{direction}'}}", Encoding.UTF8, "application/json");
-                    var response = await client.PostAsync(uri, requestContent);
+                    //var requestContent = new StringContent($"{{'direction': '{direction}'}}", Encoding.UTF8, "application/json");
+                    var requestContent = new StringContent(direction, Encoding.UTF8, "application/json");
+                    var response = await client.PostAsync($"{uri}?direction={direction}", requestContent);
                     response.EnsureSuccessStatusCode();
                 }
             }

@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Starter.Api.Middleware;
+using System.Text.Json.Serialization;
 
 namespace Starter.Api
 {
@@ -19,7 +20,12 @@ namespace Starter.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers(o => { o.OutputFormatters.Clear(); })
-                .AddNewtonsoftJson(o => { o.UseCamelCasing(processDictionaryKeys: true); });
+                .AddNewtonsoftJson(o => { o.UseCamelCasing(processDictionaryKeys: true); })
+                .AddJsonOptions(opts =>
+                 {
+                     opts.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+                     opts.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
+                 });
 
             services.AddApplicationInsightsTelemetry(Configuration["APPLICATIONINSIGHTS_CONNECTION_STRING"]);
 

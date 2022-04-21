@@ -2,6 +2,7 @@
 using Starter.Api.Requests;
 using Starter.Api.Responses;
 using Starter.Core.Enumerations;
+using System.Threading.Tasks;
 
 namespace Starter.Api.Controllers
 {
@@ -9,6 +10,7 @@ namespace Starter.Api.Controllers
     [Route("Sifl/Snake")]
     public class SiflSnakeController : ControllerBase
     {
+        public const int MoveDelayMilliseconds = 350;
         public static Direction JoystickState = Direction.None;
 
         /// <summary>
@@ -47,10 +49,19 @@ namespace Starter.Api.Controllers
         /// Battlesnake will move on that turn, either up, down, left, or right.
         /// </summary>
         [HttpPost("move")]
-        public IActionResult Move(GameStatusRequest gameStatusRequest)
+        public async Task<IActionResult> Move(GameStatusRequest gameStatusRequest)
         {
+            // Wait a moment for the slowly human...
+            await Task.Delay(MoveDelayMilliseconds);
+
             // Move based on latest joystick info
-            return Ok(JoystickState);
+            var response = new MoveResponse
+            {
+                Move = JoystickState.ToString().ToLower(), //TODO: Direction extension ForResponse
+                Shout = $"Human says I has to go {JoystickState}..."
+            };
+
+            return Ok(response);
         }
 
         /// <summary>
