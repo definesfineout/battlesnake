@@ -1,11 +1,20 @@
 ﻿using Starter.Core.Enumerations;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Starter.Core.Solvers
 {
     public class NaiveSolver : BaseSolver
     {
+        public List<Direction> ValidDirections
+        {
+            get
+            {
+                return GetValidDirections().ToList();
+            }
+        }
+
         public NaiveSolver(Board board, Snake me)
             : base(board, me)
         { }

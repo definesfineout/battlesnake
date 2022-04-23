@@ -10,7 +10,7 @@ namespace DirectInputTest
     {
         private static readonly HttpClient client = new();
 
-        private const string uri = "https://df-battlesnake-sillyboi20220319162850.azurewebsites.net/sifl/snake/input";
+        private const string uri = "https://df-battlesnake-sillyboi20220319162850.azurewebsites.net/olly/snake/input";
         //private const string uri = "http://localhost:17832/sifl/snake/input";
 
         //// Y: up = 0; none = 32511; down = 65535
