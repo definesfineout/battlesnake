@@ -2,9 +2,9 @@
 
 Developed live on stream at [twitch.tv/defiines](https://twitch.tv/defiines)
 
-- **SillyBoi** implements naiive approaches to survival and finding food
+- **SillyBoi** implements naive approaches to survival and finding food
 - **Skagit** plans to implement some sort of hamiltonian cycle algorithm before augmenting with flood-fill
-- **Sifl** is controlled by human input via gamepad input, more sock puppet than snake
+- **Sifl** is controlled by human input via gamepad, more sock puppet than snake
 - **Olly** will also be gamepad-controlled, but will try to help avoid walls and other snakes
 
 # Acknowledgments
