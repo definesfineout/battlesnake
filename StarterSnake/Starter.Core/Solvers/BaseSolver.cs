@@ -49,15 +49,15 @@ namespace Starter.Core.Solvers
             }
         }
 
-        public Point FindClosestFood()
+        public Point? FindClosestFood()
         {
-            if (!Board.Food.Any())
+            if (!Board.Food?.Any() ?? true)
             {
                 return null;
             }
 
             var distances = new Dictionary<Point, int>();
-            foreach (var food in Board.Food)
+            foreach (var food in Board.Food!)
             {
                 distances[food] = Math.Abs(Me.Head.X - food.X) +
                     Math.Abs(Me.Head.Y - food.Y);

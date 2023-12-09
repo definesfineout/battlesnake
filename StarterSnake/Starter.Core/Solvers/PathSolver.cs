@@ -222,7 +222,7 @@ namespace Starter.Core.Solvers
 
     public class TableCell
     {
-        public Point Parent { get; set; }
+        public Point? Parent { get; set; }
         public int Distance { get; set; }
         public bool Visited { get; set; }
 

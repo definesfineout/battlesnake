@@ -16,7 +16,7 @@ namespace Starter.Core.Enumerations
     }
 
 
-    public static class eDirectionExtensions
+    public static class DirectionExtensions
     {
         public static Direction Opposite(this Direction direction)
         {

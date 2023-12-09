@@ -1,6 +1,4 @@
 ﻿using Starter.Core.Enumerations;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Starter.Core
 {
@@ -13,37 +11,37 @@ namespace Starter.Core
         /// Unique identifier for this Battlesnake in the context of the current Game.
         /// Example: "totally-unique-snake-id"
         /// </summary>
-        public string Id { get; set; }
+        public string? Id { get; set; }
 
         /// <summary>
         /// Name given to this Battlesnake by its author.
         /// Example: "Sneky McSnek Face"
         /// </summary>
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         /// <summary>
         /// Health value of this Battlesnake, between 0 and 100 inclusively.
         /// Example: 54
         /// </summary>
-        public string Health { get; set; }
+        public string? Health { get; set; }
 
         /// <summary>
         /// Array of coordinates representing this Battlesnake's location on the game board.
         /// This array is ordered from head to tail.
         /// Example: [{"x": 0, "y": 0}, ..., {"x": 2, "y": 0}]
         /// </summary>
-        public IEnumerable<Point> Body { get; set; }
+        public IEnumerable<Point>? Body { get; set; }
 
         /// <summary>
         /// Coordinates for this Battlesnake's head. Equivalent to the first element of the body array.
         /// Example: {"x": 0, "y": 0}
         /// </summary>
-        public Point Head { get; set; }
+        public Point? Head { get; set; }
 
-        public Point Tail {
+        public Point? Tail {
             get
             {
-                return Body.LastOrDefault();
+                return Body?.LastOrDefault();
             }
         }
 
@@ -58,7 +56,7 @@ namespace Starter.Core
         /// Message shouted by this Battlesnake on the previous turn.
         /// Example: "why are we shouting??"
         /// </summary>
-        public string Shout { get; set; }
+        public string? Shout { get; set; }
 
         /// <summary>
         /// The previous response time of this Battlesnake, in milliseconds. "0" means
@@ -71,12 +69,14 @@ namespace Starter.Core
         /// The squad that the Battlesnake belongs to. Used to identify squad members in Squad Mode games.
         /// Example: "1"
         /// </summary>
-        public string Squad { get; set; }
+        public string? Squad { get; set; }
 
         public Direction Direction
         {
             get
             {
+                if (Body == null) return Direction.None;
+
                 var body = Body.Take(2).ToList();
                 return body[1].GetDirectionTo(body[0]);
             }

@@ -11,6 +11,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CosmosDemo", "CosmosDemo\Co
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SnakePad", "DirectInputTest\SnakePad.csproj", "{5651478E-F727-42A3-ABB8-AAAD2E3F351C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graph", "Graph\Graph.csproj", "{81D9C2BC-942D-4E45-B1DA-5407E7A2842E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestSnakeStuff", "TestSnakeStuff\TestSnakeStuff.csproj", "{BE2ECF8C-577D-420E-8ED4-BA73DCE5E805}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{5651478E-F727-42A3-ABB8-AAAD2E3F351C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5651478E-F727-42A3-ABB8-AAAD2E3F351C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5651478E-F727-42A3-ABB8-AAAD2E3F351C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81D9C2BC-942D-4E45-B1DA-5407E7A2842E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81D9C2BC-942D-4E45-B1DA-5407E7A2842E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81D9C2BC-942D-4E45-B1DA-5407E7A2842E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81D9C2BC-942D-4E45-B1DA-5407E7A2842E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE2ECF8C-577D-420E-8ED4-BA73DCE5E805}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE2ECF8C-577D-420E-8ED4-BA73DCE5E805}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE2ECF8C-577D-420E-8ED4-BA73DCE5E805}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE2ECF8C-577D-420E-8ED4-BA73DCE5E805}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

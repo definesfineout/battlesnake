@@ -1,6 +1,4 @@
 ﻿using Starter.Core.Enumerations;
-using System;
-using System.Collections.Generic;
 
 namespace Starter.Core
 {
@@ -15,10 +13,10 @@ namespace Starter.Core
             Y = y;
         }
 
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
             => Equals(obj as Point);
 
-        public bool Equals(Point p)
+        public bool Equals(Point? p)
         {
             if (p is null)
             {
@@ -45,7 +43,7 @@ namespace Starter.Core
 
         public override int GetHashCode() => (X, Y).GetHashCode();
 
-        public static bool operator ==(Point left, Point right)
+        public static bool operator ==(Point? left, Point? right)
         {
             if (left is null)
             {
@@ -61,7 +59,7 @@ namespace Starter.Core
             return left.Equals(right);
         }
 
-        public static bool operator !=(Point left, Point right)
+        public static bool operator !=(Point? left, Point? right)
             => !(left == right);
 
         public Direction GetDirectionTo(Point adjacentPosition)
@@ -94,7 +92,7 @@ namespace Starter.Core
             return Direction.None;
         }
 
-        public Point GetAdjacent(Direction direction)
+        public Point? GetAdjacent(Direction direction)
         {
             switch (direction)
             {
@@ -122,8 +120,14 @@ namespace Starter.Core
                 { 
                     continue;
                 }
+                
+                var a = GetAdjacent(direction);
+                if (a == null)
+                {
+                    continue;
+                }
 
-                yield return GetAdjacent(direction);
+                yield return a;
             }
         }
     }

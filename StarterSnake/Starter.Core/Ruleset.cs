@@ -9,14 +9,14 @@
         /// The name of the ruleset.
         /// Example: "standard"
         /// </summary>
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
 
         /// <summary>
         /// The version of the ruleset.
         /// Example: "v1.2.3"
         /// </summary>
-        public string Version { get; set; }
+        public string? Version { get; set; }
 
     }
 }

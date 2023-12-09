@@ -8,7 +8,7 @@
         /// <summary>
         /// A unique identifier for this Game.
         /// </summary>
-        public string Id { get; set; }
+        public string? Id { get; set; }
         
         
         /// <summary>
@@ -23,6 +23,6 @@
         /// Information about the ruleset being used to run this game.
         /// Example: {"name": "standard", "version": "v1.2.3"}
         /// </summary>
-        public Ruleset Ruleset { get; set; }
+        public Ruleset? Ruleset { get; set; }
     }
 }
